@@ -6,9 +6,8 @@ class Navigation extends Component {
     return (
       <div>
         <Link key={1} to=''>Home</Link>
-        <Link key={2} to='/signup'>Sign Up</Link>
-        <Link key={3} to='/signin'>Sign In</Link>
-        <Link key={4} to='/signout'>Sign Out</Link>
+        <Link key={2} to='/events'>Events</Link>
+        <Link key={3} to='/dashboard'>Dash Board</Link>
       </div>
     );
   }
