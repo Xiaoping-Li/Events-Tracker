@@ -5,9 +5,9 @@ class EventForm extends Component {
     super();
 
     this.state = {
-      date: '',
-      eventTitle: '',
-      eventContent: '',
+      title: '',
+      content: '',
+      userID: null,
     }
   }
 
@@ -21,18 +21,13 @@ class EventForm extends Component {
     return (
       <form>
         <div>
-          <label>Date:</label>
-          <input type='date' name='date' value={this.state.date} onChange={this.handleInputChange} placeholder='Enter Date'></input>
-        </div>
-
-        <div>
           <label>Event Title:</label>
-          <input type='text' name='eventTitle' value={this.state.eventTitle} onChange={this.handleInputChange} placeholder='Enter Title'></input>
+          <input type='text' name='title' value={this.state.title} onChange={this.handleInputChange} placeholder='Enter Title'></input>
         </div>
 
         <div>
           <label>Event Content:</label>
-          <textarea type='text' name='eventContent' value={this.state.eventContent} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
+          <textarea type='text' name='content' value={this.state.content} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
         </div>
 
         <button>Add</button>

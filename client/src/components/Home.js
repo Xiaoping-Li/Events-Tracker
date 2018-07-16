@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timer from './Timer';
+import TimeSlot from './TimeSlot';
 
 
 class Home extends Component {
@@ -8,7 +8,7 @@ class Home extends Component {
       <div className="App">
         Welcome to Events-Tracker Home Page
 
-        <Timer />
+        <TimeSlot />
       </div>
     );
   }

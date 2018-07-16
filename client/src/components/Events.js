@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import EventForm from './EventForm';
+
 class Events extends Component {
   constructor() {
     super();
@@ -12,7 +14,7 @@ class Events extends Component {
   render() {
     return (
       <div>
-        <Link to="/eventForm"><button>+</button></Link>    
+        <EventForm />    
       </div>
     );
   }
