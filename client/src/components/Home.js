@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Timer from './Timer';
 
 
 class Home extends Component {
@@ -6,6 +7,8 @@ class Home extends Component {
     return (
       <div className="App">
         Welcome to Events-Tracker Home Page
+
+        <Timer />
       </div>
     );
   }

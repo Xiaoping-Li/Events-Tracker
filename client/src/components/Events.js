@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import Event from './Event';
+import EventForm from './EventForm';
 
 class Events extends Component {
+  constructor() {
+    super();
+    this.state = {
+      date: '',
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <Event />  
+      <div>
+        <EventForm />  
       </div>
     );
   }

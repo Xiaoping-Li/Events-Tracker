@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-class Event extends Component {
+class EventForm extends Component {
   constructor() {
     super();
 
     this.state = {
-      date: '',
       eventTitle: '',
-      eventContent: ''
+      eventContent: '',
     }
   }
 
@@ -34,9 +33,11 @@ class Event extends Component {
           <label>Event Content:</label>
           <textarea type='text' name='eventContent' value={this.state.eventContent} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
         </div>
+
+        <button>Add</button>
       </form>
     );
   }
 }
 
-export default Event;
+export default EventForm;
