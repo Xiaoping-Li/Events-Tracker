@@ -1,0 +1,27 @@
+{
+  "name": "events-tracker",
+  "version": "1.0.0",
+  "description": "Events-Tracker to track how long you spend for the events you are interested in",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xiaoping-Li/Events-Tracker.git"
+  },
+  "author": "Xiaoping",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xiaoping-Li/Events-Tracker/issues"
+  },
+  "homepage": "https://github.com/Xiaoping-Li/Events-Tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "knex": "^0.15.1",
+    "mysql": "^2.15.0",
+    "sqlite3": "^4.0.2"
+  }
+}
