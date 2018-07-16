@@ -32,7 +32,7 @@ class Event extends Component {
 
         <div>
           <label>Event Content:</label>
-          <input type='text' name='eventContent' value={this.state.eventContent} onChange={this.handleInputChange} placeholder='Enter Content'></input>
+          <textarea type='text' name='eventContent' value={this.state.eventContent} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
         </div>
       </form>
     );
