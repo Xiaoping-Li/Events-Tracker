@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import EventForm from './EventForm';
+import { Link } from 'react-router-dom';
 
 class Events extends Component {
   constructor() {
     super();
     this.state = {
-      date: '',
+      eventsList: [],
     };
   }
 
   render() {
     return (
       <div>
-        <EventForm />  
+        <Link to="/eventForm"><button>+</button></Link>    
       </div>
     );
   }

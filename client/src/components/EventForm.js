@@ -5,6 +5,7 @@ class EventForm extends Component {
     super();
 
     this.state = {
+      date: '',
       eventTitle: '',
       eventContent: '',
     }
