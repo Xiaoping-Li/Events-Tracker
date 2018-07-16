@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import Event from './Event';
 
-
-class Home extends Component {
+class Events extends Component {
   render() {
     return (
       <div className="App">
-        Welcome to Events-Tracker Home Page
+        <Event />  
       </div>
     );
   }
 }
 
-export default Home;
+export default Events;
