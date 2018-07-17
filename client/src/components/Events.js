@@ -19,6 +19,7 @@ class Events extends Component {
         const detail = result.data;
         this.setState({ eventsList: detail });
         console.log(result);
+        console.log(this.state.eventsList);
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });

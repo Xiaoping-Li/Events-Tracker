@@ -7,7 +7,7 @@ class Navigation extends Component {
       <div>
         <Link key={1} to=''>Home</Link>
         <Link key={2} to='/events'>Events</Link>
-        <Link key={3} to='/eventDetails'>Event Details</Link>
+        <Link key={3} to='/events/:id/eventDetails'>Event Details</Link>
       </div>
     );
   }
