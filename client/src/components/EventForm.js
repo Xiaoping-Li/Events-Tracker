@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import ROOT_URL from '../utils/config';
 
 class EventForm extends Component {
   constructor() {
@@ -7,7 +9,7 @@ class EventForm extends Component {
     this.state = {
       title: '',
       content: '',
-      userID: null,
+      userID: 2, // dummy userID 2
     }
   }
 
@@ -15,7 +17,36 @@ class EventForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
+  }
+
+  handleAddEvent = e => {
+    e.preventDefault();
+
+    if (this.state.title === '') {
+      alert('Please enter a title');
+      return;
+    } else {
+      const newEvent = {
+        title: this.state.title,
+        content: this.state.title,
+        userID: this.state.userID
+      };
+
+      axios.post(ROOT_URL + '/api/events/', newEvent)
+        .then(result => {
+          console.log('Add newEvent to DB');
+        })
+        .catch(error => {
+          console.log({ error, message: 'failed to add newEvent' });
+        })
+    }
+
+    this.setState({
+      title: '',
+      content: '',
+      userID: 2,
+    });
+  }
 
   render() {
     return (
@@ -30,7 +61,7 @@ class EventForm extends Component {
           <textarea type='text' name='content' value={this.state.content} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
         </div>
 
-        <button>Add</button>
+        <button onClick={this.handleAddEvent}>Add</button>
       </form>
     );
   }
