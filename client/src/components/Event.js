@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import TimeSlot from './TimeSlot';
+import { Link } from 'react-router-dom';
 
-
-class Home extends Component {
-  render() {
-    return (
-      <div className="App">
-        Welcome to Events-Tracker Event Page
-
-        <TimeSlot />
-      </div>
-    );
-  }
+const Event = (event) => {
+  return (
+    <Link to={`/events/${event.id}/eventDetails`}>
+      {event.title}
+      <button>X</button>
+    </Link>
+  );
 }
 
-export default Home;
+export default Event;

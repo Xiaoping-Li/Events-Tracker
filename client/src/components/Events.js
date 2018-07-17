@@ -26,13 +26,16 @@ class Events extends Component {
   }
 
   render() {
-    const events = this.state.eventsList.map((event, i) => <li>{<Event key={i} event={event} />}</li>);
     return (
       <div>
         <EventForm />
         <div className="events__List">
           <ul>
-            {events}
+            {this.state.eventsList.map((event, index) => {
+              return (
+                <li key={index}><Event event={event} /></li>
+              );  
+            })}
           </ul>  
         </div>    
       </div>
