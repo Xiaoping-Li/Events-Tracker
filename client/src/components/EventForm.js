@@ -61,8 +61,8 @@ class EventForm extends Component {
           <textarea type='text' name='content' value={this.state.content} onChange={this.handleInputChange} placeholder='Enter Content'></textarea>
         </div>
 
-        <button onClick={this.handleAddEvent}>Add</button>
-      </form>
+        <button onClick={this.handleAddEvent}>Add</button> 
+      </form> 
     );
   }
 }

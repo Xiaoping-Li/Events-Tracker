@@ -5,7 +5,7 @@ import ROOT_URL from '../utils/config';
 import EventForm from './EventForm';
 import Event from './Event';
 
-class Events extends Component {
+class EventsList extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,7 +19,6 @@ class Events extends Component {
         const detail = result.data;
         this.setState({ eventsList: detail });
         console.log(result);
-        console.log(this.state.eventsList);
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
@@ -44,4 +43,4 @@ class Events extends Component {
   }
 }
 
-export default Events;
+export default EventsList;
