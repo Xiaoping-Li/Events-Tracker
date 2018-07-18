@@ -19,7 +19,7 @@ class Event extends Component {
   render() {
     return (
       <div>
-        <Link to={`/events/${this.props.event.id}/eventDetails`}>
+        <Link to={`/${this.props.event.id}/eventDetails`}>
           {this.props.event.title}  
         </Link>
         <button onClick={this.handleDeleteClick}>X</button>

@@ -8,7 +8,7 @@ class TimeSlot extends Component {
     this.state = {
       start: 0,
       stop: 0,
-      eventID: 1, //dummy eventID 1
+      eventID: this.props.event_ID,
     }; 
   }
 
@@ -24,7 +24,7 @@ class TimeSlot extends Component {
     const newTimeSlot = {
       start: this.state.start,
       stop: this.state.stop,
-      eventID: 1,
+      eventID: this.props.event_ID
     };
 
     axios.post(ROOT_URL + '/api/timeSlots/', newTimeSlot)
@@ -38,8 +38,7 @@ class TimeSlot extends Component {
     this.setState({
       start: 0,
       stop: 0,
-      eventID: 1,
-    });
+    }); 
   }
 
   render() {

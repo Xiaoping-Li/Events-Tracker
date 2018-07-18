@@ -28,8 +28,8 @@ eventsRouter.get('/', (req, res) => {
 });
 
 eventsRouter.get('/:id/eventDetails', (req, res) => {
-  const { id } = req.params;
-
+  const id = req.params.id;
+  
   events
     .getEventDetails(id)
     .then(data => {
@@ -42,7 +42,7 @@ eventsRouter.get('/:id/eventDetails', (req, res) => {
       };
 
       data.forEach(datum => {
-        details.eventID = datum.eventID;
+        details.eventID = id;
         details.title = datum.title;
         details.content = datum.content;
         details.userID = datum.userID;

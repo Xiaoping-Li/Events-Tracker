@@ -18,7 +18,7 @@ class App extends Component {
           <Navigation />
           <Route path='/' exact component={Home} />
           <Route path='/events' component={EventsList} />
-          <Route path='/events/:id/eventDetails' component={EventDetails} />
+          <Route path='/:id/eventDetails' component={EventDetails} />
         </div>
       </BrowserRouter> 
     );
