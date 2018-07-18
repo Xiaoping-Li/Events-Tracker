@@ -14,6 +14,14 @@ class EventsList extends Component {
   }
 
   componentDidMount() {
+    this.getEventsList();
+  }
+
+  componentDidUpdate() {
+    this.getEventsList();
+  }
+
+  getEventsList = () => {
     axios.get(ROOT_URL + '/api/events/')
       .then(result => {
         const detail = result.data;
