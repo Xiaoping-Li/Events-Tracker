@@ -33,7 +33,23 @@ eventsRouter.get('/:id/eventDetails', (req, res) => {
   events
     .getEventDetails(id)
     .then(data => {
-      res.status(200).json(data);
+      const details = {
+        eventID: null,
+        title: '',
+        content: '',
+        userID: null,
+        timeSlots: [],
+      };
+
+      data.forEach(datum => {
+        details.eventID = datum.eventID;
+        details.title = datum.title;
+        details.content = datum.content;
+        details.userID = datum.userID;
+        details.timeSlots.push({ timeSlot_id: datum.id, timeSlot_start: datum.start, timeSlot_stop: datum.stop, timeSlot_createAt: datum.createdAt});
+      });
+
+      res.status(200).json(details);
     })
     .catch(error => {
       res.status(500).json({ error, message: "Error when fetch event details" });
