@@ -10,6 +10,7 @@ class EventsList extends Component {
     super();
     this.state = {
       eventsList: [],
+      updated: false,
     };
   }
 
@@ -18,30 +19,35 @@ class EventsList extends Component {
   }
 
   componentDidUpdate() {
-    this.getEventsList();
+    if (this.state.updated === true) {
+      this.getEventsList();
+    }
   }
 
   getEventsList = () => {
     axios.get(ROOT_URL + '/api/events/')
       .then(result => {
         const detail = result.data;
-        this.setState({ eventsList: detail });
-        console.log(result);
+        this.setState({ eventsList: detail, updated: false });
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
       })
   }
 
+  handleListUpdate = () => {
+    this.setState({ updated: true });
+  }
+
   render() {
     return (
       <div>
-        <EventForm />
+        <EventForm updateList={this.handleListUpdate}/>
         <div className="events__List">
           <ul>
             {this.state.eventsList.map((event, index) => {
               return (
-                <li key={index}><Event event={event} /></li>
+                <li key={index}><Event event={event} updateList={this.handleListUpdate} /></li>
               );  
             })}
           </ul>  

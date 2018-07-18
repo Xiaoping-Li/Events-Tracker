@@ -4,8 +4,8 @@ import ROOT_URL from '../utils/config';
 
 
 class EventForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       title: '',
@@ -35,7 +35,7 @@ class EventForm extends Component {
 
       axios.post(ROOT_URL + '/api/events/', newEvent)
         .then(result => {
-          console.log('Add newEvent to DB');
+          this.props.updateList();
         })
         .catch(error => {
           console.log({ error, message: 'failed to add newEvent' });
