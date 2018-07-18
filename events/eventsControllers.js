@@ -9,6 +9,13 @@ module.exports = {
     return query;
   },
 
+  getEventDetails: id => {
+    return db('events as e')
+      .leftOuterJoin('timeSlots as t', 'e.id', 't.eventID')
+      .select('*')
+      .where('e.id', id);
+  },
+
   insert: event => {
     return db('events')
       .insert(event)

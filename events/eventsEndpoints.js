@@ -27,6 +27,19 @@ eventsRouter.get('/', (req, res) => {
     });
 });
 
+eventsRouter.get('/:id/eventDetails', (req, res) => {
+  const { id } = req.params;
+
+  events
+    .getEventDetails(id)
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(error => {
+      res.status(500).json({ error, message: "Error when fetch event details" });
+    })
+})
+
 eventsRouter.put('/:id', (req, res) => {
   const { id } = req.params;
 
