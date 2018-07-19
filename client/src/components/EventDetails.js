@@ -39,15 +39,7 @@ class EventDetails extends Component {
     this.setState({ updated: true });
   }
 
-  handleDeleteTimeSlot = (id) => {
-    axios.delete(ROOT_URL + `/api/timeSlots/${id}`)
-      .then(result => {
-      console.log('Delete TimeSlot success');   
-      })
-      .catch(error => {
-        console.log({ error, message: 'failed to delete TimeSlot' });
-      })
-  }
+  
 
   render() {
     let slotsItems;
@@ -59,7 +51,7 @@ class EventDetails extends Component {
     if (this.state.details.timeSlots) {
       slotsItems = this.state.details.timeSlots.map((slot, idx) => {
         return (
-          <li key={idx}><TimeSlot slot={slot}/></li>
+          <li key={idx}><TimeSlot slot={slot} updateList={this.handleListUpdate}/></li>
         );  
       });
     }
