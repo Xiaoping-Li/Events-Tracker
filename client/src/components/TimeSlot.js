@@ -22,12 +22,18 @@ class TimeSlot extends Component {
     const hours = Math.floor(timeDiff / 3600);
     const mins = Math.floor((timeDiff - (hours * 3600)) / 60);
     const secs = timeDiff - (hours * 3600) - (mins * 60);
-    const timeFormat = `${hours}:${mins}:${secs}`;
+    const timeFormat = ` ${hours}:${mins}:${secs}`;
+
+    const year = startTime.getFullYear();
+    const month = startTime.getMonth() + 1;
+    const day = startTime.getDate();
+    const dateFormat = `${year}-${month}-${day} `;
 
     return (
       <div>
-      {timeFormat}
-      <button onClick={this.handleDeleteTimeSlot}>X</button>
+        {dateFormat}
+        {timeFormat}
+        <button onClick={this.handleDeleteTimeSlot}>X</button>
       </div>
     );
   }
