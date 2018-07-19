@@ -19,10 +19,6 @@ class TimeSlot extends Component {
   }
 
   handleAddTimeSlot = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-
     e.preventDefault();
 
     const newTimeSlot = {
@@ -33,27 +29,25 @@ class TimeSlot extends Component {
 
     axios.post(ROOT_URL + '/api/timeSlots/', newTimeSlot)
       .then(result => {
+        this.props.updateList();
         console.log('Add newTimeSlot to DB');
       })
       .catch(error => {
         console.log({ error, message: 'failed to add newTimeSlot' });
-      }); 
+      });
   }
 
   render() {
-    const startTime = new Date(this.state.start);
-    const stopTime = new Date(this.state.stop);
-    const diff = stopTime - startTime;
-
     return (
       <div>
         <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
-        <button name="stop" value={new Date()} onClick={this.handleAddTimeSlot}>Stop</button>
-        {this.state.start} /
+        <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
+        <button onClick={this.handleAddTimeSlot}>Add</button>
+        {/* {this.state.start} /
         {this.state.stop}
         <div>
-          Diff: git {diff}
-        </div>
+          Diff: {diff}
+        </div> */}
       </div>
     );
   }
