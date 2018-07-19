@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ROOT_URL from '../utils/config';
-import TimeSlot from './TimeSlot';
+import Timer from './Timer';
 
 
 class EventDetails extends Component {
@@ -62,7 +62,7 @@ class EventDetails extends Component {
     return (
       <div>
         Welcome to {this.state.details.title} Page
-        <TimeSlot event_ID={this.state.details.eventID} updateList={this.handleListUpdate} />
+        <Timer event_ID={this.state.details.eventID} updateList={this.handleListUpdate} />
         <ul>
           {slotsItems}
         </ul>

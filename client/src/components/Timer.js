@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ROOT_URL from '../utils/config';
 
-class TimeSlot extends Component {
+class Timer extends Component {
   constructor(props) {
     super(props); 
     this.state = {
@@ -43,14 +43,9 @@ class TimeSlot extends Component {
         <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
         <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
         <button onClick={this.handleAddTimeSlot}>Add</button>
-        {/* {this.state.start} /
-        {this.state.stop}
-        <div>
-          Diff: {diff}
-        </div> */}
       </div>
     );
   }
 }
 
-export default TimeSlot;
+export default Timer;
