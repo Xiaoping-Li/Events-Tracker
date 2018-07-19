@@ -7,11 +7,11 @@ class TimeSlot extends Component {
   handleDeleteTimeSlot = () => {
     axios.delete(ROOT_URL + `/api/timeSlots/${this.props.slot.timeSlot_id}`)
       .then(result => {
-          this.props.updateList();
-          console.log('Delete TimeSlot success');   
+        this.props.updateList();
+        console.log('Delete TimeSlot success');   
       })
       .catch(error => {
-          console.log({ error, message: 'failed to delete TimeSlot' });
+        console.log({ error, message: 'failed to delete TimeSlot' });
       })
   }
 
@@ -25,8 +25,8 @@ class TimeSlot extends Component {
     const timeFormat = ` ${hours}:${mins}:${secs}`;
 
     const year = startTime.getFullYear();
-    const month = startTime.getMonth() + 1;
-    const day = startTime.getDate();
+    const month = startTime.getMonth() + 1; // getMonth (0 - 11)
+    const day = startTime.getDate(); // getDate (1 - 31)
     const dateFormat = `${year}-${month}-${day} `;
 
     return (
