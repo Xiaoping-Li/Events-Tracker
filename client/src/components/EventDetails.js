@@ -24,14 +24,23 @@ class EventDetails extends Component {
   }
 
   render() {
+    let slotsItems;
+
     if (this.state.details === null) {
       return;
+    }
+
+    if (this.state.details.timeSlots) {
+      slotsItems = this.state.details.timeSlots.map((slot, idx) => <li key={idx}>{slot.timeSlot_id}</li>);
     }
 
     return (
       <div>
         Welcome to {this.state.details.title} Page
         <TimeSlot event_ID={this.state.details.eventID} />
+        <ul>
+          {slotsItems}
+        </ul>
       </div>
     );
   }

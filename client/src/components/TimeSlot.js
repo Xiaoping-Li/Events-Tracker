@@ -19,6 +19,10 @@ class TimeSlot extends Component {
   }
 
   handleAddTimeSlot = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+
     e.preventDefault();
 
     const newTimeSlot = {
@@ -33,12 +37,7 @@ class TimeSlot extends Component {
       })
       .catch(error => {
         console.log({ error, message: 'failed to add newTimeSlot' });
-      });
-
-    // this.setState({
-    //   start: 0,
-    //   stop: 0,
-    // }); 
+      }); 
   }
 
   render() {
@@ -49,12 +48,11 @@ class TimeSlot extends Component {
     return (
       <div>
         <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
-        <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
-        <button onClick={this.handleAddTimeSlot}>Add</button>
+        <button name="stop" value={new Date()} onClick={this.handleAddTimeSlot}>Stop</button>
         {this.state.start} /
         {this.state.stop}
         <div>
-          Diff: {diff}
+          Diff: git {diff}
         </div>
       </div>
     );
