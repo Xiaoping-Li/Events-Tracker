@@ -35,22 +35,26 @@ class TimeSlot extends Component {
         console.log({ error, message: 'failed to add newTimeSlot' });
       });
 
-    this.setState({
-      start: 0,
-      stop: 0,
-    }); 
+    // this.setState({
+    //   start: 0,
+    //   stop: 0,
+    // }); 
   }
 
   render() {
+    const startTime = new Date(this.state.start);
+    const stopTime = new Date(this.state.stop);
+    const diff = stopTime - startTime;
+
     return (
       <div>
-        <button name="start" value={new Date().getTime()} onClick={this.handleTimerClick}>Start</button>
-        <button name="stop" value={new Date().getTime()} onClick={this.handleTimerClick}>Stop</button>
+        <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
+        <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
         <button onClick={this.handleAddTimeSlot}>Add</button>
         {this.state.start} /
         {this.state.stop}
         <div>
-          Diff: {this.state.stop - this.state.start}
+          Diff: {diff}
         </div>
       </div>
     );
