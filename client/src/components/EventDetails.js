@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ROOT_URL from '../utils/config';
 import Timer from './Timer';
+import TimeSlot from './TimeSlot';
 
 
 class EventDetails extends Component {
@@ -38,6 +39,16 @@ class EventDetails extends Component {
     this.setState({ updated: true });
   }
 
+  handleDeleteTimeSlot = (id) => {
+    axios.delete(ROOT_URL + `/api/timeSlots/${id}`)
+      .then(result => {
+      console.log('Delete TimeSlot success');   
+      })
+      .catch(error => {
+        console.log({ error, message: 'failed to delete TimeSlot' });
+      })
+  }
+
   render() {
     let slotsItems;
 
@@ -47,14 +58,9 @@ class EventDetails extends Component {
 
     if (this.state.details.timeSlots) {
       slotsItems = this.state.details.timeSlots.map((slot, idx) => {
-        const startTime = new Date(slot.timeSlot_start);
-        const stopTime = new Date(slot.timeSlot_stop);
-        const timeDiff = (stopTime - startTime) / 1000;
-        const hours = Math.floor(timeDiff / 3600);
-        const mins = Math.floor((timeDiff - (hours * 3600)) / 60);
-        const secs = timeDiff - (hours * 3600) - (mins * 60);
-        const timeFormat = `${hours}:${mins}:${secs}`;
-        return (<li key={idx}>{timeFormat}</li>);  
+        return (
+          <li key={idx}><TimeSlot slot={slot}/></li>
+        );  
       });
     }
     

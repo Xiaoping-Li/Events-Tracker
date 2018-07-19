@@ -5,7 +5,6 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import EventsList from './components/EventsList';
 import EventDetails from './components/EventDetails';
-import EventForm from './components/EventForm';
 
 
 import './App.css';
