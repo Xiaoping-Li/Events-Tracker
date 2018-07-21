@@ -1,3 +1,3 @@
-import createHistory from 'history/createHistory';
+// import createHistory from 'history/createHistory';
 
-export default createHistory();
+// export default createHistory();
