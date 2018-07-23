@@ -1,6 +1,6 @@
-import history from '../../history';
+import history from '../history';
 import auth0 from 'auth0-js';
-import config from '../../utils/config';
+import config from '../utils/config';
 
 export default class Auth {
   // Use personal credentials to create auth0 object

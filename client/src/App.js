@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Auth from './components/Auth/Auth.js';
+import Auth from './Auth/Auth.js';
 import history from './history';
 
 import Navigation from './components/Navigation';
@@ -11,8 +11,6 @@ import EventDetails from './components/EventDetails';
 import './App.css';
 
 const auth = new Auth();
-
-
 
 class App extends Component {
   

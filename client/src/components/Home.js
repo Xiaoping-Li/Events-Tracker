@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Auth from './Auth/Auth.js';
+import Auth from '../Auth/Auth.js';
 
 
 class Home extends Component {
