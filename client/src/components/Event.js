@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import ROOT_URL from '../utils/config';
+import config from '../utils/config';
 
 class Event extends Component {
 
   handleDeleteClick = () => {
-    axios.delete(ROOT_URL + `/api/events/${this.props.event.id}`)
+    axios.delete(config.ROOT_URL + `/api/events/${this.props.event.id}`)
       .then(result => {
         this.props.updateList();
       })

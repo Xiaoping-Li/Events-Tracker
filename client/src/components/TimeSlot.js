@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ROOT_URL from '../utils/config';
+import config from '../utils/config';
 
 
 class TimeSlot extends Component {
   handleDeleteTimeSlot = () => {
-    axios.delete(ROOT_URL + `/api/timeSlots/${this.props.slot.timeSlot_id}`)
+    axios.delete(config.ROOT_URL + `/api/timeSlots/${this.props.slot.timeSlot_id}`)
       .then(result => {
         this.props.updateList();
         console.log('Delete TimeSlot success');   

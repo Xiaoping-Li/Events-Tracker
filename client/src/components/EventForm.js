@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ROOT_URL from '../utils/config';
+import config from '../utils/config';
 
 
 class EventForm extends Component {
@@ -33,7 +33,7 @@ class EventForm extends Component {
         userID: this.state.userID
       };
 
-      axios.post(ROOT_URL + '/api/events/', newEvent)
+      axios.post(config.ROOT_URL + '/api/events/', newEvent)
         .then(result => {
           this.props.updateList();
         })

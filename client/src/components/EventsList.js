@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ROOT_URL from '../utils/config';
+import config from '../utils/config';
 
 import EventForm from './EventForm';
 import Event from './Event';
@@ -25,7 +25,7 @@ class EventsList extends Component {
   }
 
   getEventsList = () => {
-    axios.get(ROOT_URL + '/api/events/')
+    axios.get(config.ROOT_URL + '/api/events/')
       .then(result => {
         const detail = result.data;
         this.setState({ eventsList: detail, updated: false });

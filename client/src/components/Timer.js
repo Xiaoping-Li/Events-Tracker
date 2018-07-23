@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ROOT_URL from '../utils/config';
+import config from '../utils/config';
 
 class Timer extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Timer extends Component {
       eventID: this.props.event_ID
     };
 
-    axios.post(ROOT_URL + '/api/timeSlots/', newTimeSlot)
+    axios.post(config.ROOT_URL + '/api/timeSlots/', newTimeSlot)
       .then(result => {
         this.props.updateList();
         console.log('Add newTimeSlot to DB');
