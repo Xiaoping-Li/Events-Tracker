@@ -52,6 +52,13 @@ class TimeSlot extends Component {
         <div>
           Diff: {this.state.stop - this.state.start}
         </div>
+        {/* <ul>
+          {this.props.timeSlots.map((timeSlot, index) => {
+            return (
+              <li key={index}>{timeSlot.timeSlot_id}</li>
+            );
+          })}
+        </ul> */}
       </div>
     );
   }

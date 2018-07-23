@@ -30,8 +30,8 @@ class EventDetails extends Component {
 
     return (
       <div>
-        Welcome to {this.state.details.title} Page
-        <TimeSlot event_ID={this.state.details.eventID} />
+        {this.state.details.title}
+        <TimeSlot event_ID={this.state.details.eventID} timeSlots={this.state.details.timeSlots}/>
       </div>
     );
   }
