@@ -5,7 +5,7 @@ class Navigation extends Component {
   render() {
     return (
       <div>
-        <Link key={1} to=''>Home</Link>
+        <Link key={1} to='/home'>Home</Link>
         <Link key={2} to='/events'>Events</Link>
       </div>
     );
