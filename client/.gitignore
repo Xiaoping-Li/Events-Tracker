@@ -23,3 +23,5 @@ yarn-error.log*
 
 # Sqlite3 files
 .sqlite3
+
+config.js
