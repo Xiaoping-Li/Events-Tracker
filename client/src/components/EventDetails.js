@@ -42,11 +42,14 @@ class EventDetails extends Component {
         );  
       });
     }
-    
+
+    const today = new Date();
 
     return (
       <div>
         Welcome to {this.state.details.title} Page
+        <div>Today: {today.getFullYear()}-{today.getMonth() + 1}-{today.getDate()}</div>
+        
         <Timer event_ID={this.state.details.eventID} updateList={this.getEventDetails} />
         <ul>
           {slotsItems}
