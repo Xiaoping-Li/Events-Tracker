@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../utils/config';
 import Timer from './Timer';
-import TimeSlot from './TimeSlot';
 import ColumnChart from './ColumnChart';
 
 
@@ -31,18 +30,9 @@ class EventDetails extends Component {
   }
 
   render() {
-    let slotsItems;
 
     if (this.state.details === null) {
       return;
-    }
-
-    if (this.state.details.timeSlots) {
-      slotsItems = this.state.details.timeSlots.map((slot, idx) => {
-        return (
-          <li key={idx}><TimeSlot slot={slot} updateList={this.getEventDetails}/></li>
-        );  
-      });
     }
 
     const today = new Date();
@@ -54,11 +44,6 @@ class EventDetails extends Component {
         <div>Content: {this.state.details.content}</div>
         
         <Timer event_ID={this.state.details.eventID} updateList={this.getEventDetails} />
-
-        <ul>
-          {slotsItems}
-        </ul>
-        
         <ColumnChart timeSlots={this.state.details.timeSlots}/>
       </div>
     );
