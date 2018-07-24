@@ -10,7 +10,6 @@ class EventDetails extends Component {
     super();
     this.state = {
       details: {},
-      updated: false,
     };
   }
 
@@ -18,28 +17,16 @@ class EventDetails extends Component {
     this.getEventDetails();
   }
 
-  componentDidUpdate() {
-    if (this.state.updated === true) {
-      this.getEventDetails();
-    }
-  }
-
   getEventDetails = () => {
     axios.get(config.ROOT_URL + `/api/events/${this.props.match.params.id}/eventDetails`)
       .then(result => {
         const data = result.data;
-        this.setState({ details: data, updated: false });
+        this.setState({ details: data });
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
       })
   }
-
-  handleListUpdate = () => {
-    this.setState({ updated: true });
-  }
-
-  
 
   render() {
     let slotsItems;
@@ -51,7 +38,7 @@ class EventDetails extends Component {
     if (this.state.details.timeSlots) {
       slotsItems = this.state.details.timeSlots.map((slot, idx) => {
         return (
-          <li key={idx}><TimeSlot slot={slot} updateList={this.handleListUpdate}/></li>
+          <li key={idx}><TimeSlot slot={slot} updateList={this.getEventDetails}/></li>
         );  
       });
     }
@@ -60,7 +47,7 @@ class EventDetails extends Component {
     return (
       <div>
         Welcome to {this.state.details.title} Page
-        <Timer event_ID={this.state.details.eventID} updateList={this.handleListUpdate} />
+        <Timer event_ID={this.state.details.eventID} updateList={this.getEventDetails} />
         <ul>
           {slotsItems}
         </ul>

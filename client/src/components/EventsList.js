@@ -23,7 +23,7 @@ class EventsList extends Component {
     axios.get(config.ROOT_URL + '/api/events/')
       .then(result => {
         const detail = result.data;
-        this.setState({ eventsList: detail, updated: false });
+        this.setState({ eventsList: detail });
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
