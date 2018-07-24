@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import config from '../utils/config';
+import TimeSlot from './TimeSlot';
 
 class Timer extends Component {
   constructor(props) {
@@ -35,6 +36,12 @@ class Timer extends Component {
       .catch(error => {
         console.log({ error, message: 'failed to add newTimeSlot' });
       });
+
+    this.setState({
+      start: 0,
+      stop: 0,
+      eventID: this.props.event_ID,
+    });
   }
 
   render() {
@@ -43,6 +50,7 @@ class Timer extends Component {
         <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
         <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
         <button onClick={this.handleAddTimeSlot}>Add</button>
+        <TimeSlot start={this.state.start} stop={this.state.stop} />
       </div>
     );
   }

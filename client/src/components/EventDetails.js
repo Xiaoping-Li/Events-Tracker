@@ -22,7 +22,6 @@ class EventDetails extends Component {
       .then(result => {
         const data = result.data;
         this.setState({ details: data });
-        console.log(this.state.details);
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
