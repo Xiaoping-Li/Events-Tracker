@@ -3,6 +3,7 @@ import axios from 'axios';
 import config from '../utils/config';
 import Timer from './Timer';
 import TimeSlot from './TimeSlot';
+import ColumnChart from './ColumnChart';
 
 
 class EventDetails extends Component {
@@ -22,6 +23,7 @@ class EventDetails extends Component {
       .then(result => {
         const data = result.data;
         this.setState({ details: data });
+        console.log(this.state.details);
       })
       .catch(error => {
         console.log({ error, message: 'failed to load events' });
@@ -47,13 +49,17 @@ class EventDetails extends Component {
 
     return (
       <div>
-        Welcome to {this.state.details.title} Page
         <div>Today: {today.getFullYear()}-{today.getMonth() + 1}-{today.getDate()}</div>
+        <div>Welcome to {this.state.details.title} Page</div>
+        <div>Content: {this.state.details.content}</div>
         
         <Timer event_ID={this.state.details.eventID} updateList={this.getEventDetails} />
+
         <ul>
           {slotsItems}
         </ul>
+        
+        <ColumnChart timeSlots={this.state.details.timeSlots}/>
       </div>
     );
   }

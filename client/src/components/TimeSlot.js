@@ -27,7 +27,7 @@ class TimeSlot extends Component {
     const year = startTime.getFullYear();
     const month = startTime.getMonth() + 1; // getMonth (0 - 11)
     const day = startTime.getDate(); // getDate (1 - 31)
-    const dateFormat = `${year}-${month}-${day} `;
+    const dateFormat = `${year}-${month}-${day}`;
 
     return (
       <div>
