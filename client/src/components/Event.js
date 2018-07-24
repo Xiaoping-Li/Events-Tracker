@@ -23,8 +23,7 @@ class Event extends Component {
           {this.props.event.title}  
         </Link>
         <button onClick={this.handleDeleteClick}>X</button>
-      </div>
-      
+      </div>  
     );
   }
 }
