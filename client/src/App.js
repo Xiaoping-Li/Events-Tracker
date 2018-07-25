@@ -19,10 +19,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Navigation auth={auth}/>
-          <Route path='/home' exact render={(props) => <Home auth={auth} {...props} />} />
-          <Route path='/events' render={(props) => <EventsList auth={auth} {...props} />} />
-          <Route path='/:id/eventDetails' component={EventDetails} />
+          <Navigation />
+          <Route path='/' exact render={(props) => <Home auth={auth} {...props} />} />
+          <Route path='/events' exact render={(props) => <EventsList auth={auth} {...props} />} />
+          <Route path='/events/:id/eventDetails' component={EventDetails} />
         </div>
       </BrowserRouter> 
     );
