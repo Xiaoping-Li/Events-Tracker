@@ -7,8 +7,8 @@ class Timer extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      start: 0,
-      stop: 0,
+      start: '',
+      stop: '',
       eventID: this.props.event_ID,
     }; 
   }
@@ -38,8 +38,8 @@ class Timer extends Component {
       });
 
     this.setState({
-      start: 0,
-      stop: 0,
+      start: '',
+      stop: '',
       eventID: this.props.event_ID,
     });
   }
@@ -50,6 +50,7 @@ class Timer extends Component {
         <button name="start" value={new Date()} onClick={this.handleTimerClick}>Start</button>
         <button name="stop" value={new Date()} onClick={this.handleTimerClick}>Stop</button>
         <button onClick={this.handleAddTimeSlot}>Add</button>
+        <div>{this.state.count}</div>
         <TimeSlot start={this.state.start} stop={this.state.stop} />
       </div>
     );
