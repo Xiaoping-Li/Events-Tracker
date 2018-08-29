@@ -38,6 +38,7 @@ eventsRouter.get('/:id/eventDetails', (req, res) => {
         title: '',
         content: '',
         userID: null,
+        status: 'On Going',
         timeSlots: [],
       };
 
@@ -46,6 +47,7 @@ eventsRouter.get('/:id/eventDetails', (req, res) => {
         details.title = datum.title;
         details.content = datum.content;
         details.userID = datum.userID;
+        details.status = datum.status;
         details.timeSlots.push({ timeSlot_id: datum.id, timeSlot_start: datum.start, timeSlot_stop: datum.stop, timeSlot_createAt: datum.createdAt});
       });
 

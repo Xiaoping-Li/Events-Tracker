@@ -11,6 +11,7 @@ class EventsList extends Component {
       title: '',
       content: '',
       userID: 2,
+      status: "On Going",
       eventsList: [],
     };
   }
@@ -46,7 +47,8 @@ class EventsList extends Component {
       const newEvent = {
         title: this.state.title,
         content: this.state.title,
-        userID: this.state.userID
+        userID: this.state.userID,
+        status: this.state.status,
       };
 
       axios.post(config.ROOT_URL + '/api/events/', newEvent)

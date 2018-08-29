@@ -41,6 +41,7 @@ class EventDetails extends Component {
         <div>Today: {today.getFullYear()}-{today.getMonth() + 1}-{today.getDate()}</div>
         <div>Welcome to {this.state.details.title} Page</div>
         <div>Content: {this.state.details.content}</div>
+        <div>Status: {this.state.details.status}</div>
         
         <Timer event_ID={this.state.details.eventID} updateList={this.getEventDetails} />
         <ColumnChart timeSlots={this.state.details.timeSlots}/>
