@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { DropdownButton } from 'react-bootstrap';
 
 import config from '../utils/config';
+
+import DropDown4EventStatus from './DropDown4EventStatus';
 
 class Event extends Component {
 
@@ -23,7 +24,7 @@ class Event extends Component {
         <Link to={`/events/${this.props.event.id}/eventDetails`}>
           {this.props.event.title}  
         </Link>
-        <DropdownButton />
+        <DropDown4EventStatus />
         <button onClick={this.handleDeleteClick}>X</button>
       </div>  
     );
